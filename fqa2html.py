@@ -31,7 +31,9 @@ style2 = '<link rel="stylesheet" type="text/css" href="style_dark.css">'
 import time
 import datetime
 
-ga = open("ga.js").read()
+hga = open("ga.js")
+ga = hga.read()
+hga.close()
 end_of_doc = """
 <hr>
 <small class="part">Copyright &copy; 2007-%d <a href="http://yosefk.com">Yossi Kreinin</a><br>
@@ -91,7 +93,10 @@ def run_to(arg, stream, sp=False):
 
 
 def doit(arg):
-    run_to(arg + ".fqa", open(arg + ".html", "w"))
+    html = open(arg + ".html", "w")
+    run_to(arg + ".fqa", html)
+    # RG: and close file
+    html.close()
 
 
 def run(arg, sp=False):
@@ -237,7 +242,7 @@ def run(arg, sp=False):
 <body>
 <h1>%s</h1>
 %s
-  """
+"""
             % (
                 replace_html_ent(title_titag),
                 style2,
@@ -262,6 +267,8 @@ def run(arg, sp=False):
             else:
                 if not sp:
                     print(end_of_doc)
+                # RG: and close file
+                fqa.close()
                 return
     # print 'formatting C++ FQA page %s (FAQ page: %s, section number %d)'%(title,faq_page,section)
 
@@ -358,7 +365,6 @@ def run(arg, sp=False):
     print("</ul>")
 
     # print the questions
-
     for i, q in enumerate(qs):
         n = i + 1
         print()
@@ -375,6 +381,10 @@ def run(arg, sp=False):
     # end
     if not sp:
         print(end_of_doc)
+
+    # Close all opened files to supress ResourceWarning: unclosed file
+    # RG: and close file
+    fqa.close()
 
 
 secindex = [
@@ -473,9 +483,11 @@ def singlepage(outname):
     def sec_ancor(secfname):
         print('<a name="fqa-%s"></a>' % secfname[:-4], file=outf)
 
-    import imp
+    #import imp
+    import importlib
 
-    h2toc = imp.load_source("h2toc", "toc.py")
+    #h2toc = imp.load_source("h2toc", "toc.py")
+    h2toc = importlib.machinery.SourceFileLoader("h2toc", "toc.py").load_module()
 
     def sec_with_toc(filename, name):
         sec_ancor(filename)
@@ -484,7 +496,9 @@ def singlepage(outname):
         run_to(filename, tmp, sp=outname)
         tmp.close()
         h2toc.gentoc(tmpfile, name, outname)
-        outf.write(open(tmpfile).read())
+        tmp2 = open(tmpfile)
+        outf.write(tmp2.read())
+        tmp2.close()
         os.remove(tmpfile)
 
     sec_with_toc("defective.fqa", "defect")
