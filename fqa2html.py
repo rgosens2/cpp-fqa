@@ -26,6 +26,8 @@ pre  { background-color: #eeeeee }
 -->
 </style>"""
 
+style2 = '<link rel="stylesheet" type="text/css" href="style_dark.css">'
+
 import time
 import datetime
 
@@ -238,7 +240,7 @@ def run(arg, sp=False):
   """
             % (
                 replace_html_ent(title_titag),
-                style,
+                style2,
                 replace_html_ent(title_h1tag),
                 below_heading,
             )
