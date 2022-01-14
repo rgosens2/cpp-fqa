@@ -26,7 +26,7 @@ pre  { background-color: #eeeeee }
 -->
 </style>"""
 
-style2 = '<link rel="stylesheet" type="text/css" href="style_dark.css">'
+style2 = '<link rel="stylesheet" type="text/css" href="style.css">'
 
 import time
 import datetime
