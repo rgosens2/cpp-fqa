@@ -50,6 +50,9 @@ doit()
 # 34 <h2>Table of contents</h2>
 # 35 </p>
 # Looks like correct HTML
+# WELL: See: https://www.w3docs.com/learn-html/html-p-tag.html
+# The <p> tag cannot contain tables and other block-level elements.
+# <h2> is a block-level element
 # Yossi is trying to shut up tidy by removing those <p>s but makes one
 # mistake leaving one single </p> in index.html and fqa.html
 # DONE: put the backtick immediately after </ul> in index.fqa and in 
