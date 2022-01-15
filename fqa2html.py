@@ -469,7 +469,7 @@ def singlepage(outname):
 </head>
 <body>
 """
-        % style,
+        % style2,
         file=outf,
     )
 
