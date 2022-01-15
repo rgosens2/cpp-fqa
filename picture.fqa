@@ -10,7 +10,7 @@ FQA: It's "practical" in the sense that you can use it to modify and extend prog
 (a web browser engine written in C++) or LLVM (an optimizing compiler written in C++).
 
 It's "practical" in the sense that a lot of practical work is done with it, and a lot of useful things
-are hardi or impossible to do without it. Most of those useful things are along the lines of "changing a C++ program"
+are hard or impossible to do without it. Most of those useful things are along the lines of "changing a C++ program"
 or "using a C++ library".
 
 C++ is not "mature" in the sense that different compilers will interpret it differently, and
