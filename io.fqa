@@ -239,7 +239,7 @@ is too ugly even for seasoned C++ developers, who do have pretty low standards.
 The real fun starts when two people overload (or specialize or whatever they call it) the operators for /special
 cases of types/ in conflicting ways. For instance, I know how to print |std::map<std::string,T>|, and you know how to print |std::map<T,int>|.
 The question is, who gets to print |std::map<std::string,int>|? The compiler is in trouble, and when a C++ compiler
-is in trouble, it immediately empties its bowl, dumping a nice, large, stinky error message right at our faces.
+is in trouble, it immediately empties its bowel, dumping a nice, large, stinky error message right at our faces.
 Happy, happy, joy, joy, dear colleague.
 
 -END
