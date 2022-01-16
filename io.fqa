@@ -19,7 +19,7 @@ base classes provided by |iostream|. |FILE*| can not be extended because "it's n
 `</ul>`
 
 FQA: Why should I do this, why should I do that, you ask. What kind of manners are these? Do what you are told. Assignment Number 1 - convert all your evil
-|printf("0x%08x\n", x)| statements to this:
+|printf("%08x\\n", x)| statements to this:
     
 @
 std::cout << std::hex << std::setfill('0') << std::setw(8) << x << std::dec << std::endl; 
