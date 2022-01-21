@@ -4,4 +4,5 @@
 _out_.txt
 *~
 .*.swp
-.DS_Store
+**/.DS_Store
+
