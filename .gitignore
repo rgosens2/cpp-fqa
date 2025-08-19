@@ -5,4 +5,5 @@ _out_.txt
 *~
 .*.swp
 **/.DS_Store
+.vscode/
 
